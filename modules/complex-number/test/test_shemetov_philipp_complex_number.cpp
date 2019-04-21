@@ -1,6 +1,6 @@
 // Copyright 2019 Shemetov Philipp
 
-#include <gtest.h>
+#include <gtest/gtest.h>
 
 #include "../include/complex_number.h"
 
