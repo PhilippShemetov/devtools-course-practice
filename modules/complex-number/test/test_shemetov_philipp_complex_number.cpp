@@ -4,54 +4,58 @@
 
 #include "include/complex_number.h"
 
-TEST(Shemetov_Philipp_ComplexNumberTest, Addition_Real_Numbers) {
-    // Arrange
-    ComplexNumber first(4.0, 0.0);
-    ComplexNumber second(6.0, 0.0);
-    ComplexNumber result;
-
+TEST(Shemetov_Philipp_ComplexNumberTest, Can_Difference_Six_Complex_Numbers) {
     // Act
-    result = first + second;
+    ComplexNumber a(20., 20.);
+    ComplexNumber b(3., 3.);
+    ComplexNumber expect(5., 5.);
+    ComplexNumber c = a - b - b - b - b - b;
 
-    // Assert
-    EXPECT_TRUE(result.getRe() == 10.0 && result.getIm() == 0.0);
+     // Assert
+    EXPECT_EQ(expect.getRe(), c.getRe());
+    EXPECT_EQ(expect.getIm(), c.getIm());
 }
 
-TEST(Shemetov_Philipp_ComplexNumberTest, Multiply_On_Zero) {
+TEST(Shemetov_Philipp_ComplexNumberTest, Can_Add_Complex_Four) {
     // Arrange
-    ComplexNumber zero(0, 0);
-    ComplexNumber second(10.0, 12.0);
+    ComplexNumber first(2.0, 9.0);
+    ComplexNumber second(3.0, 11.0);
+    ComplexNumber third(4.0, 14.0);
+    ComplexNumber fourth(5.0, 14.0);
 
     // Act
-    ComplexNumber res = zero * second;
+    ComplexNumber a = first + second + third + fourth;
 
     // Assert
-    EXPECT_FLOAT_EQ(0, res.getRe());
-    EXPECT_FLOAT_EQ(0, res.getIm());
+    ComplexNumber expected_a(14.0, 48.0);
+    EXPECT_EQ(expected_a, a);
 }
 
-TEST(Shemetov_Philipp_ComplexNumberTest, Equate_Complexnumber) {
+TEST(Shemetov_Philipp_ComplexNumberTest,
+    Multiplication_By_Imaginary_One_Works_Incorrectly) {
     // Arrange
-    ComplexNumber first(10.2345, 15.0);
-    ComplexNumber second(275.92, 34.35);
-    ComplexNumber third(10567.79, 103456.38);
+    double d1 = 7.1;
+    double d2 = 54.3;
+    ComplexNumber a(d1, d2);
+    ComplexNumber b(-d2, d1);
+    ComplexNumber c(1.8, 1.3);
 
     // Act
-    first = second = third;
+    ComplexNumber e = b * c;
 
-    // Assert
-    EXPECT_TRUE(third == first && second == first);
+     // Assert
+    EXPECT_TRUE(b != e);
 }
 
-TEST(Shemetov_Philipp_ComplexNumberTest, Sum_Two_Opposite_Equals_Zero) {
+TEST(Shemetov_Philipp_ComplexNumberTest, Can_Create_Negative_Real) {
     // Arrange
-    ComplexNumber one(10, -8);
-    ComplexNumber second(-10, 8);
-    ComplexNumber third(0, 0);
+    double re = -3.98;
+    double im = 1.0;
 
     // Act
-    ComplexNumber res = one + second;
+    ComplexNumber a(re, im);
 
     // Assert
-    EXPECT_EQ(third, res);
+    EXPECT_EQ(re, a.getRe());
+    EXPECT_EQ(im, a.getIm());
 }
