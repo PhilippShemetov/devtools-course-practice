@@ -4,8 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Shemetov_Philipp_ComplexNumberTest, Addition_Real_Numbers)
-{
+TEST(Shemetov_Philipp_ComplexNumberTest, Addition_Real_Numbers) {
     // Arrange
     ComplexNumber first(4.0, 0.0);
     ComplexNumber second(6.0, 0.0);
@@ -18,8 +17,7 @@ TEST(Shemetov_Philipp_ComplexNumberTest, Addition_Real_Numbers)
     EXPECT_TRUE(result.getRe() == 10.0 && result.getIm() == 0.0);
 }
 
-TEST(Shemetov_Philipp_ComplexNumberTest, Multiply_On_Zero)
-{
+TEST(Shemetov_Philipp_ComplexNumberTest, Multiply_On_Zero) {
     // Arrange
     ComplexNumber zero(0, 0);
     ComplexNumber second(10.0, 12.0);
@@ -32,8 +30,7 @@ TEST(Shemetov_Philipp_ComplexNumberTest, Multiply_On_Zero)
     EXPECT_FLOAT_EQ(0, res.getIm());
 }
 
-TEST(Shemetov_Philipp_ComplexNumberTest, Equate_Complexnumber)
-{
+TEST(Shemetov_Philipp_ComplexNumberTest, Equate_Complexnumber) {
     // Arrange
     ComplexNumber first(10.2345, 15.0);
     ComplexNumber second(275.92, 34.35);
@@ -41,13 +38,12 @@ TEST(Shemetov_Philipp_ComplexNumberTest, Equate_Complexnumber)
 
     // Act
     first = second = third;
-    
+
     // Assert
     EXPECT_TRUE(third == first && second == first);
 }
 
-TEST(Shemetov_Philipp_ComplexNumberTest, Sum_Two_Opposite_Equals_Zero)
-{
+TEST(Shemetov_Philipp_ComplexNumberTest, Sum_Two_Opposite_Equals_Zero) {
     // Arrange
     ComplexNumber one(10, -8);
     ComplexNumber second(-10, 8);
