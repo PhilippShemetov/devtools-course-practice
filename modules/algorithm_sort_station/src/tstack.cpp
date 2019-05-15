@@ -1,7 +1,7 @@
 #include <iostream>
 #include "include/tstack.h"
 
-TStack::TStack(int len) : TDataRoot(len)
+TStack::TStack()
 {
 	top = -1;
 	for (int i = 0; i < MemSize; i++)
@@ -14,47 +14,47 @@ TStack::TStack(const TStack &obj)
 	pMem = new int[MemSize];
 	std::copy(obj.pMem, obj.pMem + MemSize, pMem);
 }
-void TStack::Put(const TData &elem)
+
+void TStack::SetMem(int Size)
+{
+	MemSize = Size;
+}
+
+void TStack::Put(const int &elem)
 {
 	if (pMem == nullptr)
-		SetRetCode(DataNoMem);
-	if (!IsFull())
-	{
-		pMem[++top] = elem;
-		DataCount++;
-	}
-	else
-	{
-		SetRetCode(DataFull);
-		throw "Stack is full";
-	}
+		if (!IsFull())
+		{
+			pMem[++top] = elem;
+			DataCount++;
+		}
+		else
+		{
+			throw "Stack is full";
+		}
 }
 void TStack::Pop()
 {
 	if (pMem == nullptr)
-		SetRetCode(DataNoMem);
-	if (!IsEmpty())
-	{
-		top--;
-		DataCount--;
-	}
-	else
-	{
-		SetRetCode(DataEmpty);
-		throw "Stack is empty";
-	}
+		if (!IsEmpty())
+		{
+			top--;
+			DataCount--;
+		}
+		else
+		{
+			throw "Stack is empty";
+		}
 }
-TData TStack::Get()
+int TStack::Get()
 {
 	if (pMem == nullptr)
-		SetRetCode(DataNoMem);
-	if (!IsEmpty())
-		return pMem[top];
-	else
-	{
-		SetRetCode(DataEmpty);
-		throw "Stack is empty";
-	}
+		if (!IsEmpty())
+			return pMem[top];
+		else
+		{
+			throw "Stack is empty";
+		}
 }
 void TStack::Resize(int newLen)
 {
@@ -72,14 +72,12 @@ void TStack::Resize(int newLen)
 		else
 			pMem = new int[newLen];
 		MemSize = newLen;
-		MemType = MEM_HOLDER;
 	}
 	else if (newLen == 0)
 	{
 		if (pMem != nullptr)
 			delete[] pMem;
 		MemSize = newLen;
-		MemType = MEM_RENTER;
 	}
 	else
 		throw "Wrong size of Stack";
@@ -110,4 +108,29 @@ void TStack::Print()
 	std::cout << "top -> " << pMem[top] << std::endl;
 	for (int i = top - 1; i > 0; i--)
 		std::cout << pMem[i] << std::endl;
+}
+
+int PriorityOper(char sign)
+{
+	switch (sign)
+	{
+	case '(':
+		return 0;
+		break;
+	case ')':
+		return 1;
+		break;
+	case '+':
+		return 2;
+		break;
+	case '-':
+		return 2;
+		break;
+	case '*':
+		return 3;
+		break;
+	case '/':
+		return 3;
+		break;
+	}
 }
