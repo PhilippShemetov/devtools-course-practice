@@ -31,8 +31,8 @@ public:
   void Resize(int newLen);
   bool IsEmpty() const { return top == -1; }
   bool IsFull() const { return top == MemSize - 1; }
-  virtual int IsValid();
-  virtual void Print();
+  int IsValid();
+  void Print();
 };
 
 int PriorityOper(char sign);

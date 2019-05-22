@@ -7,7 +7,7 @@ int main()
     std::string postfixf;
     int result;
     TStack stack;
-    stack.Put(formula[0]);
-
+    stack.Put(46);
+    stack.Print();
     return 0;
 }
