@@ -18,12 +18,12 @@ protected:
   int DataCount;
   int MemSize;
   int *pMem;
+  void SetMem(int Size);
 
 public:
   TStack();
   TStack(const TStack &obj);
   ~TStack(){};
-  void SetMem(int Size);
   int GetSize() { return MemSize; }
   void Put(const int &elem);
   int Get();

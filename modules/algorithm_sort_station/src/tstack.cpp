@@ -1,8 +1,10 @@
 #include <iostream>
-#include "include/tstack.h"
+#include "tstack.h"
 
-TStack::TStack()
+TStack::TStack() : MemSize(25)
 {
+    pMem = new int[MemSize];
+    DataCount = 0;
 	top = -1;
 	for (int i = 0; i < MemSize; i++)
 		pMem[i] = 0;
@@ -22,7 +24,8 @@ void TStack::SetMem(int Size)
 
 void TStack::Put(const int &elem)
 {
-	if (pMem == nullptr)
+    if (pMem == nullptr)
+        throw "error";
 		if (!IsFull())
 		{
 			pMem[++top] = elem;

@@ -1,5 +1,5 @@
 #include <string>
-#include "../include/tstack.h"
+#include "tstack.h"
 
 int main()
 {
@@ -8,6 +8,7 @@ int main()
     int result;
     TStack stack;
     stack.Put(46);
+    stack.Put(67);
     stack.Print();
     return 0;
 }
