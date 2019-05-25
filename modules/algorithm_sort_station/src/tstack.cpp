@@ -1,14 +1,15 @@
 #include <iostream>
-#include "tstack.h"
+#include "../include/tstack.h"
 
 TStack::TStack() : MemSize(25)
 {
-    pMem = new int[MemSize];
-    DataCount = 0;
+	pMem = new int[MemSize];
+	DataCount = 0;
 	top = -1;
 	for (int i = 0; i < MemSize; i++)
 		pMem[i] = 0;
 }
+
 TStack::TStack(const TStack &obj)
 {
 	MemSize = obj.MemSize;
@@ -24,17 +25,17 @@ void TStack::SetMem(int Size)
 
 void TStack::Put(const int &elem)
 {
-    if (pMem == nullptr)
-        throw "error";
-		if (!IsFull())
-		{
-			pMem[++top] = elem;
-			DataCount++;
-		}
-		else
-		{
-			throw "Stack is full";
-		}
+	if (pMem == nullptr)
+		throw "error";
+	if (!IsFull())
+	{
+		pMem[++top] = elem;
+		DataCount++;
+	}
+	else
+	{
+		throw "Stack is full";
+	}
 }
 void TStack::Pop()
 {
@@ -109,7 +110,7 @@ int TStack::IsValid()
 void TStack::Print()
 {
 	std::cout << "top -> " << pMem[top] << std::endl;
-	for (int i = top - 1; i > 0; i--)
+	for (int i = top; i >= 0; i--)
 		std::cout << pMem[i] << std::endl;
 }
 
