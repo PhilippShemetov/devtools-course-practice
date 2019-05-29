@@ -1,10 +1,13 @@
 #include <iostream>
 #include "algorithm_sort_station.h"
 
-AlgSortStation::AlgSortStation() : MemSize(25)
+AlgSortStation::AlgSortStation(int len) 
 {
-    pMem = new int[MemSize];
+    if (len < 0)
+        throw "Wrong size";
     DataCount = 0;
+    MemSize = len;
+    pMem = new int[MemSize];
 	top = -1;
 	for (int i = 0; i < MemSize; i++)
 		pMem[i] = 0;
@@ -34,6 +37,7 @@ void AlgSortStation::Put(const int &elem)
 void AlgSortStation::Pop()
 {
 	if (pMem == nullptr)
+        throw "DataNoMem";
 		if (!IsEmpty())
 		{
 			top--;
@@ -46,7 +50,8 @@ void AlgSortStation::Pop()
 }
 int AlgSortStation::Get()
 {
-	if (pMem == nullptr)
+    if (pMem == nullptr)
+        throw "DataNoMem";
 		if (!IsEmpty())
 			return pMem[top];
 		else
@@ -54,32 +59,35 @@ int AlgSortStation::Get()
 			throw "Stack is empty";
 		}
 }
+
 void AlgSortStation::Resize(int newLen)
 {
-	if (newLen > 0)
-	{
-		if (pMem != nullptr)
-		{
-			int *arr = new int[newLen];
-			for (int i = 0; i < newLen; i++)
-				arr[i] = 0;
-			std::copy(pMem, pMem + MemSize, arr);
-			delete[] pMem;
-			pMem = arr;
-		}
-		else
-			pMem = new int[newLen];
-		MemSize = newLen;
-	}
-	else if (newLen == 0)
-	{
-		if (pMem != nullptr)
-			delete[] pMem;
-		MemSize = newLen;
-	}
-	else
-		throw "Wrong size of Stack";
+    if (newLen > 0)
+    {
+        if (pMem != nullptr)
+        {
+            int* arr = new int[newLen];
+            for (int i = 0; i < newLen; i++)
+                arr[i] = 0;
+            std::copy(pMem, pMem + MemSize, arr);
+            delete[] pMem;
+            pMem = arr;
+        }
+        else
+            pMem = new int[newLen];
+        MemSize = newLen;
+    }
+    else if (newLen == 0)
+    {
+        if (pMem != nullptr)
+            delete[] pMem;
+        MemSize = newLen;
+    }
+    else
+        throw "Wrong size of Stack";
+
 }
+
 
 int AlgSortStation::IsValid()
 {
@@ -108,27 +116,3 @@ void AlgSortStation::Print()
 		std::cout << pMem[i] << std::endl;
 }
 
-int PriorityOper(char sign)
-{
-	switch (sign)
-	{
-	case '(':
-		return 0;
-		break;
-	case ')':
-		return 1;
-		break;
-	case '+':
-		return 2;
-		break;
-	case '-':
-		return 2;
-		break;
-	case '*':
-		return 3;
-		break;
-	case '/':
-		return 3;
-		break;
-	}
-}
