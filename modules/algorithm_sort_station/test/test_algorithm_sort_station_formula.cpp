@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <string>
 
-#include "../include/algorithm_sort_station_formula.h"
+#include "../include/alg_sort_station_formula.h"
 
 TEST(Test_AlgSortStation_Formula, Can_Check_Proper_Formula)
 {
