@@ -1,20 +1,24 @@
+// Copyright 2019 Shemetov Philipp
+
+#ifndef MODULES_ALGORITHM_SORT_STATION_INCLUDE_ALGORITHM_SORT_STATION_H_
+#define MODULES_ALGORITHM_SORT_STATION_INCLUDE_ALGORITHM_SORT_STATION_H_
+
 #include <string>
 
 #pragma once
 
-class AlgSortStation
-{
-protected:
+class AlgSortStation {
+ protected:
   int top;
   int *mem;
   int DataCount;
   int MemSize;
   int *pMem;
 
-public:
-  AlgSortStation(int len);
+ public:
+  explicit AlgSortStation(int len);
   AlgSortStation(const AlgSortStation &obj);
-  ~AlgSortStation(){};
+  ~AlgSortStation(){}
   int GetSize() { return MemSize; }
   void Put(const int &elem);
   int Get();
@@ -25,3 +29,5 @@ public:
   int IsValid();
   void Print();
 };
+
+#endif // MODULES_ALGORITHM_SORT_STATION_INCLUDE_ALGORITHM_SORT_STATION_H_
