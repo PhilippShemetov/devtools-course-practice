@@ -1,5 +1,5 @@
 #include <iostream>
-#include "algorithm_sort_station.h"
+#include "../include/algorithm_sort_station.h"
 
 AlgSortStation::AlgSortStation(int len) 
 {

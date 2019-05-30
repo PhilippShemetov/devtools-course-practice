@@ -1,8 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<cstring>
 #include<iostream>
-#include "algorithm_sort_station_formula.h"
-#include "algorithm_sort_station.h"
+#include "../include/algorithm_sort_station_formula.h"
+#include "../include/algorithm_sort_station.h"
 
 TFormula::TFormula(char * form)
 {

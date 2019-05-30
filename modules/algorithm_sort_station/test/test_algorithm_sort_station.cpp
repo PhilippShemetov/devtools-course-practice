@@ -1,12 +1,11 @@
-#include <gtest.h>
+#include <gtest/gtest.h>
 #include <string>
 
-#include "algorithm_sort_station.h"
+#include "../include/algorithm_sort_station.h"
 
-
-TEST(Test_AlgSortStation, Default_Constructor_Test) {
+TEST(Test_AlgSortStation, Default_Constructor_Test)
+{
     // Arrange
-    
 
     // Act
 
@@ -14,9 +13,9 @@ TEST(Test_AlgSortStation, Default_Constructor_Test) {
     ASSERT_NO_THROW(AlgSortStation(25));
 }
 
-TEST(Test_AlgSortStation, Cant_Create_Stack_With_Negative_Length) {
+TEST(Test_AlgSortStation, Cant_Create_Stack_With_Negative_Length)
+{
     // Arrange
-    
 
     // Act
 
@@ -24,8 +23,8 @@ TEST(Test_AlgSortStation, Cant_Create_Stack_With_Negative_Length) {
     ASSERT_ANY_THROW(AlgSortStation(-1));
 }
 
-
-TEST(Test_AlgSortStation, Test_Copy_Constructor) {
+TEST(Test_AlgSortStation, Test_Copy_Constructor)
+{
     // Arrange
     AlgSortStation first(3);
     AlgSortStation second(4);
@@ -36,10 +35,11 @@ TEST(Test_AlgSortStation, Test_Copy_Constructor) {
     EXPECT_EQ(first.GetSize(), second.GetSize());
 }
 
-TEST(Test_AlgSortStation, Copied_Stack_Is_Equal_To_Source_One) {
+TEST(Test_AlgSortStation, Copied_Stack_Is_Equal_To_Source_One)
+{
     // Arrange
     AlgSortStation first(3);
-    
+
     // Act
     first.Put(4);
     AlgSortStation second(first);
@@ -48,7 +48,8 @@ TEST(Test_AlgSortStation, Copied_Stack_Is_Equal_To_Source_One) {
     EXPECT_EQ(first.Get(), second.Get());
 }
 
-TEST(Test_AlgSortStation, Can_Stack_Get_Its_Size) {
+TEST(Test_AlgSortStation, Can_Stack_Get_Its_Size)
+{
     // Arrange
     AlgSortStation first(3);
 
@@ -59,7 +60,8 @@ TEST(Test_AlgSortStation, Can_Stack_Get_Its_Size) {
     EXPECT_EQ(3, first.GetSize());
 }
 
-TEST(Test_AlgSortStation, Put_Throws_When_Stack_Is_Full) {
+TEST(Test_AlgSortStation, Put_Throws_When_Stack_Is_Full)
+{
     // Arrange
     AlgSortStation first(2);
 
@@ -71,7 +73,8 @@ TEST(Test_AlgSortStation, Put_Throws_When_Stack_Is_Full) {
     ASSERT_ANY_THROW(first.Put(100));
 }
 
-TEST(Test_AlgSortStation, Ñan_Get_And_Set_Element) {
+TEST(Test_AlgSortStation, Can_Get_And_Set_Element)
+{
     // Arrange
     AlgSortStation first(3);
 
@@ -82,30 +85,30 @@ TEST(Test_AlgSortStation, Ñan_Get_And_Set_Element) {
     EXPECT_EQ(4, first.Get());
 }
 
-TEST(Test_AlgSortStation, Ñant_Get_Element_From_Empty_Stack) {
+TEST(Test_AlgSortStation, Cant_Get_Element_From_Empty_Stack)
+{
     // Arrange
     AlgSortStation first(4);
 
     // Act
-    
 
     // Assert
     ASSERT_ANY_THROW(first.Get());
 }
 
-
-TEST(Test_AlgSortStation, Cant_Get_Elment_From_Stack_Without_Mem) {
+TEST(Test_AlgSortStation, Cant_Get_Elment_From_Stack_Without_Mem)
+{
     // Arrange
     AlgSortStation first(0);
 
     // Act
 
-
     // Assert
     ASSERT_ANY_THROW(first.Get());
 }
 
-TEST(Test_AlgSortStation, Can_Pop_Element) {
+TEST(Test_AlgSortStation, Can_Pop_Element)
+{
     // Arrange
     AlgSortStation first(5);
 
@@ -116,10 +119,11 @@ TEST(Test_AlgSortStation, Can_Pop_Element) {
     first.Pop();
 
     // Assert
-    EXPECT_NE(10,first.Get());
+    EXPECT_NE(10, first.Get());
 }
 
-TEST(Test_AlgSortStation, Can_Resize_Stack) {
+TEST(Test_AlgSortStation, Can_Resize_Stack)
+{
     // Arrange
     AlgSortStation first(3);
 
@@ -129,56 +133,56 @@ TEST(Test_AlgSortStation, Can_Resize_Stack) {
         first.Put(i);
 
     // Assert
-    EXPECT_EQ(6,first.GetSize());
+    EXPECT_EQ(6, first.GetSize());
 }
 
-TEST(Test_AlgSortStation, Can_Resize_Stack_to_Zero) {
+TEST(Test_AlgSortStation, Can_Resize_Stack_to_Zero)
+{
     // Arrange
     AlgSortStation first(3);
 
     // Act
     first.Resize(0);
-    
 
     // Assert
     EXPECT_EQ(0, first.GetSize());
 }
 
-TEST(Test_AlgSortStation, Cant_Pop_Elment_From_Stack_Without_Mem) {
+TEST(Test_AlgSortStation, Cant_Pop_Elment_From_Stack_Without_Mem)
+{
     // Arrange
     AlgSortStation first(0);
 
     // Act
 
-
     // Assert
     ASSERT_ANY_THROW(first.Pop());
 }
 
-TEST(Test_AlgSortStation, Pop_Throws_When_Stack_Is_Full) {
+TEST(Test_AlgSortStation, Pop_Throws_When_Stack_Is_Full)
+{
     // Arrange
     AlgSortStation first(3);
 
     // Act
 
-
     // Assert
     ASSERT_ANY_THROW(first.Pop());
 }
 
-
-TEST(Test_AlgSortStation, Ñant_Get_Pop_From_Empty_Stack) {
+TEST(Test_AlgSortStation, Cant_Get_Pop_From_Empty_Stack)
+{
     // Arrange
     AlgSortStation first(4);
 
     // Act
 
-
     // Assert
     ASSERT_ANY_THROW(first.Pop());
 }
 
-TEST(Test_AlgSortStation, Can_Detect_If_Stack_Is_Not_Empty) {
+TEST(Test_AlgSortStation, Can_Detect_If_Stack_Is_Not_Empty)
+{
     // Arrange
     AlgSortStation first(3);
 
@@ -189,18 +193,19 @@ TEST(Test_AlgSortStation, Can_Detect_If_Stack_Is_Not_Empty) {
     EXPECT_EQ(0, first.IsEmpty());
 }
 
-TEST(Test_AlgSortStation, Can_Detect_If_Stack_Is_Empty) {
+TEST(Test_AlgSortStation, Can_Detect_If_Stack_Is_Empty)
+{
     // Arrange
     AlgSortStation first(3);
 
     // Act
-    
 
     // Assert
     EXPECT_EQ(1, first.IsEmpty());
 }
 
-TEST(Test_AlgSortStation, Can_Detect_If_Stack_Is_Not_Full) {
+TEST(Test_AlgSortStation, Can_Detect_If_Stack_Is_Not_Full)
+{
     // Arrange
     AlgSortStation first(3);
 
@@ -211,7 +216,8 @@ TEST(Test_AlgSortStation, Can_Detect_If_Stack_Is_Not_Full) {
     EXPECT_EQ(0, first.IsFull());
 }
 
-TEST(Test_AlgSortStation, Can_Detect_If_Stack_Is_Full) {
+TEST(Test_AlgSortStation, Can_Detect_If_Stack_Is_Full)
+{
     // Arrange
     AlgSortStation first(1);
 
@@ -222,18 +228,19 @@ TEST(Test_AlgSortStation, Can_Detect_If_Stack_Is_Full) {
     EXPECT_EQ(1, first.IsFull());
 }
 
-TEST(Test_AlgSortStation, Stack_Is_Valid) {
+TEST(Test_AlgSortStation, Stack_Is_Valid)
+{
     // Arrange
     AlgSortStation first(3);
 
     // Act
 
-
     // Assert
     ASSERT_ANY_THROW(first.Pop());
 }
 
-TEST(Test_AlgSortStation, Can_Print_Values) {
+TEST(Test_AlgSortStation, Can_Print_Values)
+{
     // Arrange
     AlgSortStation first(3);
 
