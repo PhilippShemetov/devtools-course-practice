@@ -22,5 +22,5 @@ class AlgSortStationFormula {
 };
 int PriorityOper(char sign);
 
-#endif  /* MODULES_ALGORITHM_SORT_STATION_
-        INCLUDE_ALGORITHM_SORT_STATION_FORMULA_H_ */
+#endif  // MODULES_ALGORITHM_SORT_
+        // STATION_INCLUDE_ALGORITHM_SORT_STATION_FORMULA_H_
