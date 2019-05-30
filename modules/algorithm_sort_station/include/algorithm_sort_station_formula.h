@@ -1,18 +1,19 @@
-#include<string>
+#include <string>
 const int MaxLen = 255;
 
-class TFormula
+class AlgSortStationFormula
 {
 private:
-    char Formula[MaxLen];     // исходная формула
-    char PostfixForm[MaxLen]; // постфиксная форма
-    int lenghtFormula; // длина формулы
+    char Formula[MaxLen];
+    char PostfixForm[MaxLen];
+    int lenghtFormula;
     int lenghtPostfixForm;
+
 public:
-    TFormula(char *form);                            // конструктор
-    TFormula(std::string form);                            // конструктор преобразования типа
-    int FormulaChecker(int Brackets[], int size);     // проверка корректности скобок
-    int FormulaConverter();                          // преобразование в постфиксную форму
-    double FormulaCalculator();                      // вычисление формулы
+    AlgSortStationFormula(char *form);
+    AlgSortStationFormula(std::string form);
+    int FormulaChecker(int Brackets[], int size);
+    int FormulaConverter();
+    double FormulaCalculator();
 };
 int PriorityOper(char sign);

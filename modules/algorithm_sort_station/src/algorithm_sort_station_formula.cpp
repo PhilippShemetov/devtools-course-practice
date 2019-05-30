@@ -1,10 +1,10 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include<cstring>
-#include<iostream>
+#include <cstring>
+#include <iostream>
 #include "../include/algorithm_sort_station_formula.h"
 #include "../include/algorithm_sort_station.h"
 
-TFormula::TFormula(char * form)
+AlgSortStationFormula::AlgSortStationFormula(char *form)
 {
     lenghtFormula = strlen(form);
     lenghtPostfixForm = 0;
@@ -17,20 +17,20 @@ TFormula::TFormula(char * form)
         throw "Formula is empty!";
 }
 
-TFormula::TFormula(std::string form)
+AlgSortStationFormula::AlgSortStationFormula(std::string form)
 {
     lenghtFormula = form.length();
     lenghtPostfixForm = 0;
     if (lenghtFormula != 0)
     {
-        strcpy(Formula, (char*)form.c_str());
+        strcpy(Formula, (char *)form.c_str());
         strcpy(PostfixForm, "");
     }
     else
         throw "Formula is empty!";
 }
 
-int TFormula::FormulaChecker(int Brackets[], int size)
+int AlgSortStationFormula::FormulaChecker(int Brackets[], int size)
 {
     AlgSortStation st(lenghtFormula);
     int index = 0;
@@ -93,10 +93,10 @@ int TFormula::FormulaChecker(int Brackets[], int size)
     return errCounter;
 }
 
-int TFormula::FormulaConverter()
+int AlgSortStationFormula::FormulaConverter()
 {
     int indexPostfix = 0;
-    int* brackets = new int[lenghtFormula * 2];
+    int *brackets = new int[lenghtFormula * 2];
     if (FormulaChecker(brackets, lenghtFormula * 2) != 0)
         throw "wrong Formula!";
     AlgSortStation st(lenghtFormula);
@@ -109,11 +109,12 @@ int TFormula::FormulaConverter()
                 if (isdigit(PostfixForm[indexPostfix - 1]))
                     PostfixForm[indexPostfix++] = ' ';
             }
-            for (i; (i < 20) && isdigit(Formula[i]); i++)
+            for (int i; (i < 20) && isdigit(Formula[i]); i++)
                 PostfixForm[indexPostfix++] = Formula[i];
         }
-        if (Formula[i] == '+' || Formula[i] == '-' || Formula[i] == '*'
-            || Formula[i] == '/' || Formula[i] == '(' || Formula[i] == ')')
+        if (Formula[i] == '+' || Formula[i] == '-' || 
+        Formula[i] == '*' || Formula[i] == '/' 
+        || Formula[i] == '(' || Formula[i] == ')')
         {
             if (st.IsEmpty())
             {
@@ -139,7 +140,8 @@ int TFormula::FormulaConverter()
             }
             else
             {
-                while ((!st.IsEmpty()) && (PriorityOper(Formula[i]) <= PriorityOper(st.Get())))
+                while ((!st.IsEmpty()) && (PriorityOper(Formula[i]) 
+                <= PriorityOper(st.Get())))
                 {
                     PostfixForm[indexPostfix++] = st.Get();
                     st.Pop();
@@ -158,7 +160,7 @@ int TFormula::FormulaConverter()
     return 0;
 }
 
-double TFormula::FormulaCalculator()
+double AlgSortStationFormula::FormulaCalculator()
 {
     if (lenghtPostfixForm == 0)
         FormulaConverter();
@@ -198,7 +200,6 @@ double TFormula::FormulaCalculator()
             oper1 = st.Get();
             st.Pop();
             st.Put(oper1 - oper2);
-
         }
         else if (PostfixForm[i] == '*')
         {
@@ -218,7 +219,6 @@ double TFormula::FormulaCalculator()
             st.Pop();
             st.Put(oper1 / oper2);
         }
-
     }
     return st.Get();
 }
@@ -230,7 +230,7 @@ int PriorityOper(char sign)
     case '(':
         return 0;
         break;
-    case')':
+    case ')':
         return 1;
         break;
     case '+':
@@ -244,6 +244,9 @@ int PriorityOper(char sign)
         break;
     case '/':
         return 3;
+        break;
+    default:
+        return 4;
         break;
     }
 }

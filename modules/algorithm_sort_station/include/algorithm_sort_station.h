@@ -2,7 +2,6 @@
 
 #pragma once
 
-
 class AlgSortStation
 {
 protected:
@@ -11,7 +10,6 @@ protected:
   int DataCount;
   int MemSize;
   int *pMem;
-
 
 public:
   AlgSortStation(int len);
@@ -27,5 +25,3 @@ public:
   int IsValid();
   void Print();
 };
-
-

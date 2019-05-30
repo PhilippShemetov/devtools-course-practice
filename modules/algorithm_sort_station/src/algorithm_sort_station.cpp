@@ -1,13 +1,13 @@
 #include <iostream>
 #include "../include/algorithm_sort_station.h"
 
-AlgSortStation::AlgSortStation(int len) 
+AlgSortStation::AlgSortStation(int len)
 {
-    if (len < 0)
-        throw "Wrong size";
-    DataCount = 0;
-    MemSize = len;
-    pMem = new int[MemSize];
+	if (len < 0)
+		throw "Wrong size";
+	DataCount = 0;
+	MemSize = len;
+	pMem = new int[MemSize];
 	top = -1;
 	for (int i = 0; i < MemSize; i++)
 		pMem[i] = 0;
@@ -22,72 +22,70 @@ AlgSortStation::AlgSortStation(const AlgSortStation &obj)
 
 void AlgSortStation::Put(const int &elem)
 {
-    if (pMem == nullptr)
-        throw "error";
-		if (!IsFull())
-		{
-			pMem[++top] = elem;
-			DataCount++;
-		}
-		else
-		{
-			throw "Stack is full";
-		}
+	if (pMem == nullptr)
+		throw "error";
+	if (!IsFull())
+	{
+		pMem[++top] = elem;
+		DataCount++;
+	}
+	else
+	{
+		throw "Stack is full";
+	}
 }
 void AlgSortStation::Pop()
 {
 	if (pMem == nullptr)
-        throw "DataNoMem";
-		if (!IsEmpty())
-		{
-			top--;
-			DataCount--;
-		}
-		else
-		{
-			throw "Stack is empty";
-		}
+		throw "DataNoMem";
+	if (!IsEmpty())
+	{
+		top--;
+		DataCount--;
+	}
+	else
+	{
+		throw "Stack is empty";
+	}
 }
 int AlgSortStation::Get()
 {
-    if (pMem == nullptr)
-        throw "DataNoMem";
-		if (!IsEmpty())
-			return pMem[top];
-		else
-		{
-			throw "Stack is empty";
-		}
+	if (pMem == nullptr)
+		throw "DataNoMem";
+	if (!IsEmpty())
+		return pMem[top];
+	else
+	{
+		throw "Stack is empty";
+	}
 }
 
 void AlgSortStation::Resize(int newLen)
 {
-    if (newLen > 0)
-    {
-        if (pMem != nullptr)
-        {
-            int* arr = new int[newLen];
-            for (int i = 0; i < newLen; i++)
-                arr[i] = 0;
-            std::copy(pMem, pMem + MemSize, arr);
-            delete[] pMem;
-            pMem = arr;
-        }
-        else
-            pMem = new int[newLen];
-        MemSize = newLen;
-    }
-    else if (newLen == 0)
-    {
-        if (pMem != nullptr)
-            delete[] pMem;
-        MemSize = newLen;
-    }
-    else
-        throw "Wrong size of Stack";
-
+	if (newLen > 0)
+	{
+		if (pMem != nullptr)
+		{
+			int *arr = new int[newLen];
+			for (int i = 0; i < newLen; i++)
+				arr[i] = 0;
+			std::copy(pMem, pMem + MemSize, arr);
+			delete[] pMem;
+			pMem = arr;
+		}
+		else
+			pMem = new int[newLen];
+		MemSize = newLen;
+	}
+	else if (newLen == 0)
+	{
+		if (pMem != nullptr)
+			delete[] pMem;
+		MemSize = newLen;
+	}
+	else
+		throw "Wrong size of Stack";
 }
-
 
 int AlgSortStation::IsValid()
 {
@@ -115,4 +113,3 @@ void AlgSortStation::Print()
 	for (int i = top; i >= 0; i--)
 		std::cout << pMem[i] << std::endl;
 }
-
