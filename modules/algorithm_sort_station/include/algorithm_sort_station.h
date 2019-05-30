@@ -10,7 +10,6 @@
 class AlgSortStation {
  protected:
   int top;
-  int *mem;
   int DataCount;
   int MemSize;
   int *pMem;
@@ -18,7 +17,7 @@ class AlgSortStation {
  public:
   explicit AlgSortStation(int len);
   AlgSortStation(const AlgSortStation &obj);
-  ~AlgSortStation(){}
+  ~AlgSortStation() {}
   int GetSize() { return MemSize; }
   void Put(const int &elem);
   int Get();
@@ -29,5 +28,4 @@ class AlgSortStation {
   int IsValid();
   void Print();
 };
-
-#endif // MODULES_ALGORITHM_SORT_STATION_INCLUDE_ALGORITHM_SORT_STATION_H_
+#endif  // MODULES_ALGORITHM_SORT_STATION_INCLUDE_ALGORITHM_SORT_STATION_H_

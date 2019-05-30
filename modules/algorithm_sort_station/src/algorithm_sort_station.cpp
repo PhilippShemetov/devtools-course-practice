@@ -14,6 +14,7 @@ AlgSortStation::AlgSortStation(int len)
 }
 AlgSortStation::AlgSortStation(const AlgSortStation &obj)
 {
+	DataCount = obj.DataCount;
 	MemSize = obj.MemSize;
 	top = obj.top;
 	pMem = new int[MemSize];
