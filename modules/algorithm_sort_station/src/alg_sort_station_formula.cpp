@@ -101,7 +101,7 @@ int AlgSortStationFormula::FormulaConverter() {
                 if (isdigit(PostfixForm[indexPostfix - 1]))
                     PostfixForm[indexPostfix++] = ' ';
             }
-            for (int i; (i < 20) && isdigit(Formula[i]); i++)
+            for (; (i < 20) && isdigit(Formula[i]); i++)
                 PostfixForm[indexPostfix++] = Formula[i];
         }
         if (Formula[i] == '+' || Formula[i] == '-' ||
