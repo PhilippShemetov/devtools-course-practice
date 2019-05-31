@@ -1,3 +1,5 @@
+// Copyright 2019 Shemetov Philipp
+
 #include <iostream>
 #include "../include/algorithm_sort_station.h"
 
