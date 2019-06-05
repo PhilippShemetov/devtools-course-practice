@@ -1,6 +1,7 @@
 // Copyright 2019 Shemetov Philipp
 
 #define _CRT_SECURE_NO_WARNINGS
+#include <string>
 #include <cstring>
 #include <iostream>
 #include "../include/alg_sort_station_formula.h"
@@ -9,24 +10,20 @@
 AlgSortStationFormula::AlgSortStationFormula(char *form) {
     lenghtFormula = strlen(form);
     lenghtPostfixForm = 0;
-    if (form != nullptr && lenghtFormula != 0)
-    {
+    if (form != nullptr && lenghtFormula != 0) {
         strcpy(Formula, form);
         strcpy(PostfixForm, "");
-    }
-    else
+    } else
         throw "Formula is empty!";
 }
 
 AlgSortStationFormula::AlgSortStationFormula(std::string form) {
     lenghtFormula = form.length();
     lenghtPostfixForm = 0;
-    if (lenghtFormula != 0)
-    {
+    if (lenghtFormula != 0) {
         strcpy(Formula, (char *)form.c_str());
         strcpy(PostfixForm, "");
-    }
-    else
+    } else
         throw "Formula is empty!";
 }
 
@@ -46,13 +43,15 @@ int AlgSortStationFormula::FormulaChecker(int Brackets[], int size) {
                     Brackets[index++] = st.Get();
                     Brackets[index++] = i;
                     st.Pop();
-                } else
+                } 
+                else
                     throw "Brackets_index_out_range,need more memory";
             } else {
                 if (index + 1 < size) {
                     Brackets[index++] = 0;
                     errCounter++;
-                } else
+                } 
+                else
                     throw "Brackets_index_out_range,need more memory";
             }
         }
@@ -94,7 +93,7 @@ int AlgSortStationFormula::FormulaConverter() {
                 PostfixForm[indexPostfix++] = Formula[i];
         }
         if (Formula[i] == '+' || Formula[i] == '-' ||
-            Formula[i] == '*' || Formula[i] == '/' || 
+            Formula[i] == '*' || Formula[i] == '/' ||
             Formula[i] == '(' || Formula[i] == ')')
         {
             if (st.IsEmpty()) {
@@ -102,8 +101,7 @@ int AlgSortStationFormula::FormulaConverter() {
             } else if (Formula[i] == '(') {
                 st.Put(Formula[i]);
             } else if (Formula[i] == ')') {
-                while (PriorityOper(st.Get()) != PriorityOper('('))
-                {
+                while (PriorityOper(st.Get()) != PriorityOper('(')) {
                     PostfixForm[indexPostfix++] = st.Get();
                     st.Pop();
                 }
@@ -112,8 +110,8 @@ int AlgSortStationFormula::FormulaConverter() {
             } else if (PriorityOper(Formula[i]) > PriorityOper(st.Get())) {
                 st.Put(Formula[i]);
             } else {
-                while ((!st.IsEmpty()) && (PriorityOper(Formula[i]) <= PriorityOper(st.Get())))
-                {
+                while ((!st.IsEmpty()) && (PriorityOper(Formula[i]) 
+                <= PriorityOper(st.Get()))) {
                     PostfixForm[indexPostfix++] = st.Get();
                     st.Pop();
                 }
@@ -121,8 +119,7 @@ int AlgSortStationFormula::FormulaConverter() {
             }
         }
     }
-    while (!st.IsEmpty())
-    {
+    while (!st.IsEmpty()) {
         PostfixForm[indexPostfix++] = st.Get();
         st.Pop();
     }
@@ -138,11 +135,9 @@ double AlgSortStationFormula::FormulaCalculator() {
     int oper1 = 0, oper2 = 0;
     int chislo = 0;
     int coefRank = -10;
-    for (int i = 0; i < lenghtPostfixForm; i++)
-    {
+    for (int i = 0; i < lenghtPostfixForm; i++) {
         bool flagLoopDigit = false;
-        while ((i < lenghtFormula) && (isdigit(PostfixForm[i])))
-        {
+        while ((i < lenghtFormula) && (isdigit(PostfixForm[i]))) {
             coefRank += 10;
             chislo *= coefRank;
             chislo += PostfixForm[i] - '0';
