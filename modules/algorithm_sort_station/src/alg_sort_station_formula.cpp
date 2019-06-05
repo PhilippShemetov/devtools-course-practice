@@ -13,8 +13,9 @@ AlgSortStationFormula::AlgSortStationFormula(char *form) {
     if (form != nullptr && lenghtFormula != 0) {
         strcpy(Formula, form);
         strcpy(PostfixForm, "");
-    } else
+    } else {
         throw "Formula is empty!";
+    }
 }
 
 AlgSortStationFormula::AlgSortStationFormula(std::string form) {
@@ -23,8 +24,9 @@ AlgSortStationFormula::AlgSortStationFormula(std::string form) {
     if (lenghtFormula != 0) {
         strcpy(Formula, (char *)form.c_str());
         strcpy(PostfixForm, "");
-    } else
+    } else {
         throw "Formula is empty!";
+    }
 }
 
 int AlgSortStationFormula::FormulaChecker(int Brackets[], int size) {
@@ -43,14 +45,13 @@ int AlgSortStationFormula::FormulaChecker(int Brackets[], int size) {
                     Brackets[index++] = st.Get();
                     Brackets[index++] = i;
                     st.Pop();
-                } 
-                else
+                } else
                     throw "Brackets_index_out_range,need more memory";
             } else {
                 if (index + 1 < size) {
                     Brackets[index++] = 0;
                     errCounter++;
-                } 
+                }
                 else
                     throw "Brackets_index_out_range,need more memory";
             }
@@ -62,8 +63,9 @@ int AlgSortStationFormula::FormulaChecker(int Brackets[], int size) {
             Brackets[index++] = st.Get();
             Brackets[index++] = 0;
             st.Pop();
-        } else
+        } else {
             throw "Brackets_index_out_range,need more memory";
+        }
     }
     std::cout << "Amount of Error = " << errCounter << std::endl;
     std::cout << "Open Bracket | Close Bracket" << std::endl;
@@ -94,8 +96,7 @@ int AlgSortStationFormula::FormulaConverter() {
         }
         if (Formula[i] == '+' || Formula[i] == '-' ||
             Formula[i] == '*' || Formula[i] == '/' ||
-            Formula[i] == '(' || Formula[i] == ')')
-        {
+            Formula[i] == '(' || Formula[i] == ')') {
             if (st.IsEmpty()) {
                 st.Put(Formula[i]);
             } else if (Formula[i] == '(') {
