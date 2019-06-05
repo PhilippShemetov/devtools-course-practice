@@ -3,8 +3,7 @@
 
 #include "../include/alg_sort_station_formula.h"
 
-TEST(Test_AlgSortStation_Formula, Can_Check_Proper_Formula)
-{
+TEST(Test_AlgSortStation_Formula, Can_Check_Proper_Formula) {
     // Arrange
     std::string str1 = "(2+3)*6*4/8-(2+5)/16";
     int size = str1.length() * 2;
@@ -17,8 +16,7 @@ TEST(Test_AlgSortStation_Formula, Can_Check_Proper_Formula)
     delete[] brackets;
 }
 
-TEST(Test_AlgSortStation_Formula, Can_Check_Wrong_Formula)
-{
+TEST(Test_AlgSortStation_Formula, Can_Check_Wrong_Formula) {
     // Arrange
     std::string str1 = "(2+3)*6*4/8-(2+5)/16))";
     int size = str1.length() * 2;
@@ -31,8 +29,7 @@ TEST(Test_AlgSortStation_Formula, Can_Check_Wrong_Formula)
     delete[] brackets;
 }
 
-TEST(Test_AlgSortStation_Formula, Can_Calculate_Proper_Formula)
-{
+TEST(Test_AlgSortStation_Formula, Can_Calculate_Proper_Formula) {
     // Arrange
     std::string str1 = "(2+3)*6*4/8-(2+5)/16";
     AlgSortStationFormula first(str1);
@@ -42,8 +39,7 @@ TEST(Test_AlgSortStation_Formula, Can_Calculate_Proper_Formula)
     EXPECT_EQ(0, first.FormulaConverter());
 }
 
-TEST(Test_AlgSortStation_Formula, Throw_When_Calculate_Wrong_Formula)
-{
+TEST(Test_AlgSortStation_Formula, Throw_When_Calculate_Wrong_Formula) {
     // Arrange
     std::string str1 = "))(2+3)*6*4/8-(2+5)/16";
     AlgSortStationFormula first(str1);
@@ -53,8 +49,7 @@ TEST(Test_AlgSortStation_Formula, Throw_When_Calculate_Wrong_Formula)
     ASSERT_ANY_THROW(first.FormulaCalculator());
 }
 
-TEST(Test_AlgSortStation_Formula, Throw_When_Create_Empty_Formula)
-{
+TEST(Test_AlgSortStation_Formula, Throw_When_Create_Empty_Formula) {
     // Arrange
     std::string str1 = "";
     // Act

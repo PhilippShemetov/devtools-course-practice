@@ -1,10 +1,10 @@
 // Copyright 2019 Shemetov Philipp
 
 #include <iostream>
+#include <algorithm>
 #include "../include/algorithm_sort_station.h"
 
-AlgSortStation::AlgSortStation(int len)
-{
+AlgSortStation::AlgSortStation(int len) {
 	if (len < 0)
 		throw "Wrong size";
 	DataCount = 0;
@@ -14,8 +14,7 @@ AlgSortStation::AlgSortStation(int len)
 	for (int i = 0; i < MemSize; i++)
 		pMem[i] = 0;
 }
-AlgSortStation::AlgSortStation(const AlgSortStation &obj)
-{
+AlgSortStation::AlgSortStation(const AlgSortStation &obj) {
 	DataCount = obj.DataCount;
 	MemSize = obj.MemSize;
 	top = obj.top;
@@ -23,8 +22,7 @@ AlgSortStation::AlgSortStation(const AlgSortStation &obj)
 	std::copy(obj.pMem, obj.pMem + MemSize, pMem);
 }
 
-void AlgSortStation::Put(const int &elem)
-{
+void AlgSortStation::Put(const int &elem) {
 	if (pMem == nullptr)
 		throw "error";
 	if (!IsFull())
@@ -37,8 +35,7 @@ void AlgSortStation::Put(const int &elem)
 		throw "Stack is full";
 	}
 }
-void AlgSortStation::Pop()
-{
+void AlgSortStation::Pop() {
 	if (pMem == nullptr)
 		throw "DataNoMem";
 	if (!IsEmpty())
@@ -51,8 +48,7 @@ void AlgSortStation::Pop()
 		throw "Stack is empty";
 	}
 }
-int AlgSortStation::Get()
-{
+int AlgSortStation::Get() {
 	if (pMem == nullptr)
 		throw "DataNoMem";
 	if (!IsEmpty())
@@ -63,8 +59,7 @@ int AlgSortStation::Get()
 	}
 }
 
-void AlgSortStation::Resize(int newLen)
-{
+void AlgSortStation::Resize(int newLen) {
 	if (newLen > 0)
 	{
 		if (pMem != nullptr)
@@ -90,8 +85,7 @@ void AlgSortStation::Resize(int newLen)
 		throw "Wrong size of Stack";
 }
 
-int AlgSortStation::IsValid()
-{
+int AlgSortStation::IsValid() {
 	if (pMem == NULL)
 	{
 		std::cout << "Stack don't have memory";
@@ -110,8 +104,7 @@ int AlgSortStation::IsValid()
 		return 0;
 }
 
-void AlgSortStation::Print()
-{
+void AlgSortStation::Print() {
 	std::cout << "top -> " << pMem[top] << std::endl;
 	for (int i = top; i >= 0; i--)
 		std::cout << pMem[i] << std::endl;
