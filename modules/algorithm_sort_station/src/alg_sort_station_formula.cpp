@@ -45,15 +45,16 @@ int AlgSortStationFormula::FormulaChecker(int Brackets[], int size) {
                     Brackets[index++] = st.Get();
                     Brackets[index++] = i;
                     st.Pop();
-                } else
+                } else {
                     throw "Brackets_index_out_range,need more memory";
+                }
             } else {
                 if (index + 1 < size) {
                     Brackets[index++] = 0;
                     errCounter++;
-                }
-                else
+                } else {
                     throw "Brackets_index_out_range,need more memory";
+                }
             }
         }
     }
@@ -111,7 +112,7 @@ int AlgSortStationFormula::FormulaConverter() {
             } else if (PriorityOper(Formula[i]) > PriorityOper(st.Get())) {
                 st.Put(Formula[i]);
             } else {
-                while ((!st.IsEmpty()) && (PriorityOper(Formula[i]) 
+                while ((!st.IsEmpty()) && (PriorityOper(Formula[i])
                 <= PriorityOper(st.Get()))) {
                     PostfixForm[indexPostfix++] = st.Get();
                     st.Pop();
@@ -182,8 +183,7 @@ double AlgSortStationFormula::FormulaCalculator() {
 }
 
 int PriorityOper(char sign) {
-    switch (sign)
-    {
+    switch (sign) {
     case '(':
         return 0;
         break;
