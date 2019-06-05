@@ -48,35 +48,27 @@ int AlgSortStationFormula::FormulaChecker(int Brackets[], int size) {
                     st.Pop();
                 } else
                     throw "Brackets_index_out_range,need more memory";
-            }
-            else
-            {
-                if (index + 1 < size)
-                {
+            } else {
+                if (index + 1 < size) {
                     Brackets[index++] = 0;
                     errCounter++;
-                }
-                else
+                } else
                     throw "Brackets_index_out_range,need more memory";
             }
         }
     }
-    while (!st.IsEmpty())
-    {
-        if (index + 2 < size)
-        {
+    while (!st.IsEmpty()) {
+        if (index + 2 < size) {
             errCounter++;
             Brackets[index++] = st.Get();
             Brackets[index++] = 0;
             st.Pop();
-        }
-        else
+        } else
             throw "Brackets_index_out_range,need more memory";
     }
     std::cout << "Amount of Error = " << errCounter << std::endl;
     std::cout << "Open Bracket | Close Bracket" << std::endl;
-    for (int i = 0; i < index; i++)
-    {
+    for (int i = 0; i < index; i++) {
         if (i % 2 == 0)
             std::cout << "\t    " << Brackets[i] << "|";
         else
@@ -92,12 +84,9 @@ int AlgSortStationFormula::FormulaConverter() {
     if (FormulaChecker(brackets, lenghtFormula * 2) != 0)
         throw "wrong Formula!";
     AlgSortStation st(lenghtFormula);
-    for (int i = 0; i < lenghtFormula; i++)
-    {
-        if (isdigit(Formula[i]))
-        {
-            if (indexPostfix != 0)
-            {
+    for (int i = 0; i < lenghtFormula; i++) {
+        if (isdigit(Formula[i])) {
+            if (indexPostfix != 0) {
                 if (isdigit(PostfixForm[indexPostfix - 1]))
                     PostfixForm[indexPostfix++] = ' ';
             }
@@ -105,18 +94,14 @@ int AlgSortStationFormula::FormulaConverter() {
                 PostfixForm[indexPostfix++] = Formula[i];
         }
         if (Formula[i] == '+' || Formula[i] == '-' ||
-            Formula[i] == '*' || Formula[i] == '/' || Formula[i] == '(' || Formula[i] == ')')
+            Formula[i] == '*' || Formula[i] == '/' || 
+            Formula[i] == '(' || Formula[i] == ')')
         {
-            if (st.IsEmpty())
-            {
+            if (st.IsEmpty()) {
                 st.Put(Formula[i]);
-            }
-            else if (Formula[i] == '(')
-            {
+            } else if (Formula[i] == '(') {
                 st.Put(Formula[i]);
-            }
-            else if (Formula[i] == ')')
-            {
+            } else if (Formula[i] == ')') {
                 while (PriorityOper(st.Get()) != PriorityOper('('))
                 {
                     PostfixForm[indexPostfix++] = st.Get();
@@ -124,13 +109,9 @@ int AlgSortStationFormula::FormulaConverter() {
                 }
                 if (PriorityOper(st.Get()) == PriorityOper('('))
                     st.Pop();
-            }
-            else if (PriorityOper(Formula[i]) > PriorityOper(st.Get()))
-            {
+            } else if (PriorityOper(Formula[i]) > PriorityOper(st.Get())) {
                 st.Put(Formula[i]);
-            }
-            else
-            {
+            } else {
                 while ((!st.IsEmpty()) && (PriorityOper(Formula[i]) <= PriorityOper(st.Get())))
                 {
                     PostfixForm[indexPostfix++] = st.Get();
@@ -168,38 +149,30 @@ double AlgSortStationFormula::FormulaCalculator() {
             i++;
             flagLoopDigit = true;
         }
-        if (flagLoopDigit)
-        {
+        if (flagLoopDigit) {
             st.Put(chislo);
             chislo = 0;
             coefRank = -10;
         }
-        if (PostfixForm[i] == '+')
-        {
+        if (PostfixForm[i] == '+') {
             oper2 = st.Get();
             st.Pop();
             oper1 = st.Get();
             st.Pop();
             st.Put(oper1 + oper2);
-        }
-        else if (PostfixForm[i] == '-')
-        {
+        } else if (PostfixForm[i] == '-') {
             oper2 = st.Get();
             st.Pop();
             oper1 = st.Get();
             st.Pop();
             st.Put(oper1 - oper2);
-        }
-        else if (PostfixForm[i] == '*')
-        {
+        } else if (PostfixForm[i] == '*') {
             oper2 = st.Get();
             st.Pop();
             oper1 = st.Get();
             st.Pop();
             st.Put(oper1 * oper2);
-        }
-        else if (PostfixForm[i] == '/')
-        {
+        } else if (PostfixForm[i] == '/') {
             oper2 = st.Get();
             if (oper2 == 0)
                 throw "devide by zero";
