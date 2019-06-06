@@ -18,7 +18,7 @@ class AlgSortStation {
  public:
   explicit AlgSortStation(int len = DefMemSize);
   AlgSortStation(const AlgSortStation &obj);
-  ~AlgSortStation() { delete[] pMem; }
+  ~AlgSortStation() { pMem = NULL; }
   int GetSize() { return MemSize; }
   void Put(const int &elem);
   int Get();
