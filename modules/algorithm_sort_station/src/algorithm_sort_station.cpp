@@ -25,14 +25,11 @@ AlgSortStation::AlgSortStation(const AlgSortStation& obj) {
 
 void AlgSortStation::Put(const int &elem) {
     if (pMem == nullptr)
-        throw "Data No Mem";;
-    if (!IsFull())
-    {
+        throw "Data No Mem";
+    if (!IsFull()) {
         pMem[++top] = elem;
         DataCount++;
-    }
-    else
-    {
+    } else {
         throw "Stack is full";
     }
 }
@@ -40,13 +37,10 @@ void AlgSortStation::Put(const int &elem) {
 void AlgSortStation::Pop() {
     if (pMem == nullptr)
         throw "Data No Mem";
-    if (!IsEmpty())
-    {
+    if (!IsEmpty()) {
         top--;
         DataCount--;
-    }
-    else
-    {
+    } else {
         throw "Stack is empty";
     }
 }
@@ -63,23 +57,19 @@ int AlgSortStation::Get() {
 }
 
 void AlgSortStation::Resize(int newLen) {
-    if (newLen > 0)
-    {
-        if (pMem != nullptr)
-        {
+    if (newLen > 0) {
+        if (pMem != nullptr) {
             int* arr = new int[newLen];
             for (int i = 0; i < newLen; i++)
                 arr[i] = 0;
             std::copy(pMem, pMem + MemSize, arr);
             delete[] pMem;
             pMem = arr;
-        }
-        else
+        } else {
             pMem = new int[newLen];
+        }
         MemSize = newLen;
-    }
-    else if (newLen == 0)
-    {
+    } else if (newLen == 0) {
         if (pMem != nullptr)
             delete[] pMem;
         MemSize = newLen;
@@ -90,13 +80,11 @@ void AlgSortStation::Resize(int newLen) {
 }
 
 int AlgSortStation::IsValid() {
-    if (pMem == NULL)
-    {
+    if (pMem == NULL) {
         std::cout << "Stack don't have memory";
         return 1;
     }
-    if (MemSize >= DataCount)
-    {
+    if (MemSize >= DataCount) {
         for (int i = 0; i < DataCount; i++)
             std::cout << pMem[i] << std::endl;
         std::cout << "Stack is Valid" << std::endl;
@@ -104,8 +92,9 @@ int AlgSortStation::IsValid() {
         this->Pop();
         return 1;
     }
-    else
+    else {
         return 0;
+    }
 
 }
 
