@@ -5,6 +5,43 @@
 
 #include "../include/alg_sort_station_formula.h"
 
+TEST(Test_AlgSortStation_Formula, Default_Constructor_Test_With_Char) {
+    // Arrange
+    const char* str1 = "(2+3)*6*4/8-(2+5)/16";
+    // Act
+
+    // Assert
+    ASSERT_NO_THROW(AlgSortStationFormula first(str1));
+}
+
+TEST(Test_AlgSortStation_Formula, Throw_When_Create_Empty_Formula_With_Char) {
+    // Arrange
+    const char* str1 = "";
+    // Act
+
+    // Assert
+    ASSERT_ANY_THROW(AlgSortStationFormula first(str1));
+}
+
+TEST(Test_AlgSortStation_Formula, Default_Constructor_Test_With_String) {
+    // Arrange
+    std::string str1 = "(2+3)*6*4/8-(2+5)/16";
+    // Act
+
+    // Assert
+    ASSERT_NO_THROW(AlgSortStationFormula first(str1));
+}
+
+TEST(Test_AlgSortStation_Formula, Throw_When_Create_Empty_Formula_With_String) {
+    // Arrange
+    std::string str1 = "";
+    // Act
+
+    // Assert
+    ASSERT_ANY_THROW(AlgSortStationFormula first(str1));
+}
+
+
 TEST(Test_AlgSortStation_Formula, Can_Check_Proper_Formula) {
     // Arrange
     std::string str1 = "(2+3)*6*4/8-(2+5)/16";
@@ -51,12 +88,4 @@ TEST(Test_AlgSortStation_Formula, Throw_When_Calculate_Wrong_Formula) {
     ASSERT_ANY_THROW(first.FormulaCalculator());
 }
 
-TEST(Test_AlgSortStation_Formula, Throw_When_Create_Empty_Formula) {
-    // Arrange
-    std::string str1 = "";
-    // Act
 
-    // Assert
-    ASSERT_ANY_THROW(AlgSortStationFormula first
-    (reinterpret_cast<char const *>(str1.c_str())));
-}
