@@ -114,30 +114,6 @@ TEST(Test_AlgSortStation, Can_Pop_Element) {
     EXPECT_NE(10, first.Get());
 }
 
-TEST(Test_AlgSortStation, Can_Resize_Stack) {
-    // Arrange
-    AlgSortStation first(3);
-
-    // Act
-    first.Resize(6);
-    for (int i = 0; i < 6; i++)
-        first.Put(i);
-
-    // Assert
-    EXPECT_EQ(6, first.GetSize());
-}
-
-TEST(Test_AlgSortStation, Can_Resize_Stack_to_Zero) {
-    // Arrange
-    AlgSortStation first(3);
-
-    // Act
-    first.Resize(0);
-
-    // Assert
-    EXPECT_EQ(0, first.GetSize());
-}
-
 TEST(Test_AlgSortStation, Cant_Pop_Elment_From_Stack_Without_Mem) {
     // Arrange
     AlgSortStation first(0);
@@ -219,16 +195,4 @@ TEST(Test_AlgSortStation, Stack_Is_Valid) {
 
     // Assert
     ASSERT_ANY_THROW(first.Pop());
-}
-
-TEST(Test_AlgSortStation, Can_Print_Values) {
-    // Arrange
-    AlgSortStation first(3);
-
-    // Act
-    for (int i = 0; i < 3; i++)
-        first.Put(i);
-
-    // Assert
-    ASSERT_NO_THROW(first.Print());
 }
