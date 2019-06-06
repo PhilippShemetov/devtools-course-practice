@@ -1,6 +1,6 @@
 // Copyright 2019 Shemetov Philip
 
-#include <gtest.h>
+#include <gtest/gtest.h>
 #include <string>
 
 #include "../include/algorithm_sort_station.h"

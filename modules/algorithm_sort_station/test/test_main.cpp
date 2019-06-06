@@ -1,6 +1,6 @@
 // Copyright 2017 Korniakov Kirill
 
-#include <gtest.h>
+#include <gtest/gtest.h>
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
