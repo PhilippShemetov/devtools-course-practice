@@ -23,6 +23,10 @@ AlgSortStation::AlgSortStation(const AlgSortStation& obj) {
     std::copy(obj.pMem, obj.pMem + MemSize, pMem);
 }
 
+AlgSortStation::~AlgSortStation() {
+    delete[] pMem;
+}
+
 void AlgSortStation::Put(const int &elem) {
     if (pMem == nullptr)
         throw "Data No Mem";
