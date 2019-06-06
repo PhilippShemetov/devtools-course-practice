@@ -8,7 +8,7 @@
 #pragma once
 
 class AlgSortStation {
- protected:
+ private:
   int top;
   int DataCount;
   int MemSize;

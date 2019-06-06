@@ -11,7 +11,7 @@ AlgSortStationFormula::AlgSortStationFormula(char *form) {
     lenghtFormula = strlen(form);
     lenghtPostfixForm = 0;
     if (form != nullptr && lenghtFormula != 0) {
-        snprintf(Formula, MaxLen,"%s", form);
+        snprintf(Formula, MaxLen, "%s", form);
         snprintf(PostfixForm, MaxLen, "%s", "");
     } else {
         throw "Formula is empty!";
@@ -22,7 +22,8 @@ AlgSortStationFormula::AlgSortStationFormula(std::string form) {
     lenghtFormula = form.length();
     lenghtPostfixForm = 0;
     if (lenghtFormula != 0) {
-        snprintf(Formula, MaxLen,"%s", (char *)form.c_str());
+        snprintf(Formula, MaxLen, "%s",
+        reinterpret_cast<char const *>(form.c_str()));
         snprintf(PostfixForm, MaxLen, "%s", "");
     } else {
         throw "Formula is empty!";

@@ -57,5 +57,6 @@ TEST(Test_AlgSortStation_Formula, Throw_When_Create_Empty_Formula) {
     // Act
 
     // Assert
-    ASSERT_ANY_THROW(AlgSortStationFormula first((char *)str1.c_str()));
+    ASSERT_ANY_THROW(AlgSortStationFormula first
+    (reinterpret_cast<char const *>(str1.c_str())));
 }
