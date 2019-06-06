@@ -48,9 +48,9 @@ void AlgSortStation::Pop() {
 int AlgSortStation::Get() {
     if (pMem == nullptr)
         throw "Data No Mem";
-    if (!IsEmpty())
+    if (!IsEmpty()) {
         return pMem[top];
-    else {
+    } else {
         throw "Stack is empty";
     }
 }
@@ -72,11 +72,9 @@ void AlgSortStation::Resize(int newLen) {
         if (pMem != nullptr)
             delete[] pMem;
         MemSize = newLen;
-    }
-    else {
+    } else {
         throw "Wrong size of Stack";
     }
-
 }
 
 int AlgSortStation::IsValid() {
@@ -94,7 +92,6 @@ int AlgSortStation::IsValid() {
     } else {
         return 0;
     }
-
 }
 
 void AlgSortStation::Print() {
