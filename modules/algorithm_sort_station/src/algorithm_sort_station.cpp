@@ -15,6 +15,14 @@ AlgSortStation::AlgSortStation(int len) {
         pMem[i] = 0;
 }
 
+AlgSortStation::AlgSortStation(const AlgSortStation& obj) {
+    DataCount = obj.DataCount;
+    MemSize = obj.MemSize;
+    top = obj.top;
+    pMem = new int[MemSize];
+    std::copy(obj.pMem, obj.pMem + MemSize, pMem);
+}
+
 void AlgSortStation::Put(const int &elem) {
     if (pMem == nullptr)
         throw "Data No Mem";

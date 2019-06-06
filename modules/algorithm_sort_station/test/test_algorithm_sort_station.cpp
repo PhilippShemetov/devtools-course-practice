@@ -23,6 +23,29 @@ TEST(Test_AlgSortStation, Cant_Create_Stack_With_Negative_Length) {
     ASSERT_ANY_THROW(AlgSortStation(-1));
 }
 
+TEST(Test_AlgSortStation, Test_Copy_Constructor) {
+    // Arrange
+    AlgSortStation first(3);
+    AlgSortStation second(4);
+    // Act
+    first = second;
+
+    // Assert
+    EXPECT_EQ(first.GetSize(), second.GetSize());
+}
+
+TEST(Test_AlgSortStation, Copied_Stack_Is_Equal_To_Source_One) {
+    // Arrange
+    AlgSortStation first(3);
+
+    // Act
+    first.Put(4);
+    AlgSortStation second(first);
+
+    // Assert
+    EXPECT_EQ(first.Get(), second.Get());
+}
+
 TEST(Test_AlgSortStation, Can_Stack_Get_Its_Size) {
     // Arrange
     AlgSortStation first(3);
