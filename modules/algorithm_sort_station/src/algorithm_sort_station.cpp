@@ -82,7 +82,7 @@ void AlgSortStation::Resize(int newLen) {
 	{
 		if (pMem != nullptr)
 			delete[] pMem;
-		MemSize = newLen;
+	    MemSize = newLen;
 	}
 	else
 		throw "Wrong size of Stack";
@@ -92,7 +92,7 @@ void AlgSortStation::Resize(int newLen) {
 int AlgSortStation::IsValid() {
 	if (pMem == NULL)
 	{
-		std::cout << "Stack don't have memory";
+	    std::cout << "Stack don't have memory";
 		return 1;
 	}
 	if (MemSize >= DataCount)
