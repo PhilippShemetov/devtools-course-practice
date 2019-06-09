@@ -94,10 +94,10 @@ TEST(Test_AlgSortStation_Formula, Check_Return_Of_Function_Priority_Oper) {
     // Act
 
     // Assert
-    EXPECT_EQ(0,PriorityOper(first));
+    EXPECT_EQ(0, PriorityOper(first));
 }
 
-TEST(Test_AlgSortStation_Formula, 
+TEST(Test_AlgSortStation_Formula,
     Check_Throw_Error_Of_Function_Priority_Oper) {
     // Arrange
     char first = '{';
