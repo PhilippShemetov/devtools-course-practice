@@ -7,16 +7,6 @@
 #include "../include/alg_sort_station_formula.h"
 #include "../include/algorithm_sort_station.h"
 
-AlgSortStationFormula::AlgSortStationFormula(char *form) {
-    lenghtFormula = strlen(form);
-    lenghtPostfixForm = 0;
-    if (form != nullptr && lenghtFormula != 0) {
-        snprintf(Formula, MaxLen, "%s", form);
-        snprintf(PostfixForm, MaxLen, "%s", "");
-    } else {
-        throw "Formula is empty!";
-    }
-}
 
 AlgSortStationFormula::AlgSortStationFormula(std::string form) {
     lenghtFormula = form.length();
