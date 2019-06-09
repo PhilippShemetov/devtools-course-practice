@@ -51,7 +51,8 @@ TEST(Test_AlgSortStation_Formula, Can_Check_Wrong_Formula) {
     delete[] brackets;
 }
 
-TEST(Test_AlgSortStation_Formula, Can_Check_Formula_On_Throw) {
+TEST(Test_AlgSortStation_Formula,
+    Can_Check_Formula_On_Throw_If_Have_Brackets_Beginnig) {
     // Arrange
     std::string str1 = "(2+3)*6*4/8-(2+5)/16";
     int size = 1;
@@ -64,7 +65,8 @@ TEST(Test_AlgSortStation_Formula, Can_Check_Formula_On_Throw) {
     delete[] brackets;
 }
 
-TEST(Test_AlgSortStation_Formula, Can_Check_Formula_On_Throw) {
+TEST(Test_AlgSortStation_Formula,
+    Can_Check_Formula_On_Throw_If_Doesnt_Have_Brackets_Beginning) {
     // Arrange
     std::string str1 = "5*(4+3)";
     int size = 1;
