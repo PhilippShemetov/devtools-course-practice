@@ -204,7 +204,7 @@ int PriorityOper(char sign) {
         return 3;
         break;
     default:
-        return 4;
+        throw "Out of range";
         break;
     }
 }

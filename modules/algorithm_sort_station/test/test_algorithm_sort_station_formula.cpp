@@ -88,4 +88,23 @@ TEST(Test_AlgSortStation_Formula, Throw_When_Calculate_Wrong_Formula) {
     ASSERT_ANY_THROW(first.FormulaCalculator());
 }
 
+TEST(Test_AlgSortStation_Formula, Check_Return_Of_Function_Priority_Oper) {
+    // Arrange
+    char first = '(';
+    // Act
+
+    // Assert
+    EXPECT_EQ(0,PriorityOper(first));
+}
+
+TEST(Test_AlgSortStation_Formula, 
+    Check_Throw_Error_Of_Function_Priority_Oper) {
+    // Arrange
+    char first = '{';
+    // Act
+
+    // Assert
+    ASSERT_ANY_THROW(PriorityOper(first));
+}
+
 
