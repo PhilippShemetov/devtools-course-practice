@@ -24,8 +24,6 @@ AlgSortStation::AlgSortStation(const AlgSortStation& obj) {
 }
 
 void AlgSortStation::Put(const int &elem) {
-    if (pMem == nullptr)
-        throw "Data No Mem";
     if (!IsFull()) {
         pMem[++top] = elem;
         DataCount++;
@@ -35,8 +33,6 @@ void AlgSortStation::Put(const int &elem) {
 }
 
 void AlgSortStation::Pop() {
-    if (pMem == nullptr)
-        throw "Data No Mem";
     if (!IsEmpty()) {
         top--;
         DataCount--;
@@ -46,8 +42,6 @@ void AlgSortStation::Pop() {
 }
 
 int AlgSortStation::Get() {
-    if (pMem == nullptr)
-        throw "Data No Mem";
     if (!IsEmpty()) {
         return pMem[top];
     } else {

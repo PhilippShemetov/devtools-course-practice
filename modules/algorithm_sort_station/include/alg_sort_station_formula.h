@@ -14,7 +14,6 @@ class AlgSortStationFormula {
     int lenghtPostfixForm;
 
  public:
-    explicit AlgSortStationFormula(char *form);
     explicit AlgSortStationFormula(std::string form);
     int FormulaChecker(int Brackets[], int size);
     int FormulaConverter();
