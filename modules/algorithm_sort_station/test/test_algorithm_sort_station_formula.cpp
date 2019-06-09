@@ -81,9 +81,8 @@ TEST(Test_AlgSortStation_Formula, Can_Calcualte_Formula) {
     int *brackets = new int[size];
     AlgSortStationFormula first(str1);
     // Act
-    
     // Assert
-    EXPECT_EQ(35,first.FormulaCalculator());
+    EXPECT_EQ(35, first.FormulaCalculator());
     delete[] brackets;
 }
 
