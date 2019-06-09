@@ -64,6 +64,19 @@ TEST(Test_AlgSortStation_Formula, Can_Check_Formula_On_Throw) {
     delete[] brackets;
 }
 
+TEST(Test_AlgSortStation_Formula, Can_Check_Formula_On_Throw) {
+    // Arrange
+    std::string str1 = "5*(4+3)";
+    int size = 1;
+    int *brackets = new int[size];
+    AlgSortStationFormula first(str1);
+    // Act
+
+    // Assert
+    ASSERT_ANY_THROW(first.FormulaChecker(brackets, size));
+    delete[] brackets;
+}
+
 TEST(Test_AlgSortStation_Formula, Can_Calculate_Proper_Formula) {
     // Arrange
     std::string str1 = "(2+3)*6*4/8-(2+5)/16";
@@ -76,13 +89,13 @@ TEST(Test_AlgSortStation_Formula, Can_Calculate_Proper_Formula) {
 
 TEST(Test_AlgSortStation_Formula, Can_Calcualte_Formula) {
     // Arrange
-    std::string str1 = "7+(3*10)-2";
+    std::string str1 = "(7+(3*10)-2)/5";
     int size = str1.length() * 2;
     int *brackets = new int[size];
     AlgSortStationFormula first(str1);
     // Act
     // Assert
-    EXPECT_EQ(35, first.FormulaCalculator());
+    EXPECT_EQ(7, first.FormulaCalculator());
     delete[] brackets;
 }
 
