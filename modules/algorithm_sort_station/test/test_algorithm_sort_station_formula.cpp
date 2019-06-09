@@ -66,9 +66,9 @@ TEST(Test_AlgSortStation_Formula,
 }
 
 TEST(Test_AlgSortStation_Formula,
-    Can_Check_Formula_On_Throw_If_Doesnt_Have_Brackets_Beginning) {
+    Can_Check_Formula_On_Throw_If_Doesnt_Have_Open_Brackets_Beginning) {
     // Arrange
-    std::string str1 = "5*(4+3)";
+    std::string str1 = "5*)4+3";
     int size = 1;
     int *brackets = new int[size];
     AlgSortStationFormula first(str1);
@@ -76,6 +76,33 @@ TEST(Test_AlgSortStation_Formula,
 
     // Assert
     ASSERT_ANY_THROW(first.FormulaChecker(brackets, size));
+    delete[] brackets;
+}
+
+TEST(Test_AlgSortStation_Formula,
+    Can_Check_Formula_On_Throw_If_Doesnt_Have_Closed_Brackets_Beginning) {
+    // Arrange
+    std::string str1 = "5*(4+3";
+    int size = 2;
+    int *brackets = new int[size];
+    AlgSortStationFormula first(str1);
+    // Act
+
+    // Assert
+    ASSERT_ANY_THROW(first.FormulaChecker(brackets, size));
+    delete[] brackets;
+}
+
+TEST(Test_AlgSortStation_Formula, Can_Check_Formula_With_Open_Brackets) {
+    // Arrange
+    std::string str1 = "5*(4+3";
+    int size = str1.length() * 2;
+    int *brackets = new int[size];
+    AlgSortStationFormula first(str1);
+    // Act
+
+    // Assert
+    EXPECT_EQ(1, first.FormulaChecker(brackets, size));
     delete[] brackets;
 }
 
@@ -98,6 +125,18 @@ TEST(Test_AlgSortStation_Formula, Can_Calcualte_Formula) {
     // Act
     // Assert
     EXPECT_EQ(7, first.FormulaCalculator());
+    delete[] brackets;
+}
+
+TEST(Test_AlgSortStation_Formula, Devided_By_Zero) {
+    // Arrange
+    std::string str1 = "(7+(3*10)-2)/0";
+    int size = str1.length() * 2;
+    int *brackets = new int[size];
+    AlgSortStationFormula first(str1);
+    // Act
+    // Assert
+    ASSERT_ANY_THROW(first.FormulaCalculator());
     delete[] brackets;
 }
 
