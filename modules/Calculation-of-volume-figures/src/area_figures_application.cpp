@@ -87,7 +87,7 @@ std::string AreaFiguresApplication::ParseParams(int argc, const char **argv) {
         double arg2 = ParseDouble(argv[4]);
         return std::to_string(AreaFigures::RhombusArea(arg1, arg2));
     } else if (strcmp(argv[2], "equil triangle") == 0) {
-        if (argc < 6)
+        if (argc < 5)
             throw std::runtime_error("too few arguments");
         double arg1 = ParseDouble(argv[3]);
         double arg2 = ParseDouble(argv[4]);
@@ -98,7 +98,7 @@ std::string AreaFiguresApplication::ParseParams(int argc, const char **argv) {
         double arg1 = ParseDouble(argv[3]);
         return std::to_string(AreaFigures::CircleArea(arg1));
     } else if (strcmp(argv[2], "right triangle") == 0) {
-        if (argc < 4)
+        if (argc < 5)
             throw std::runtime_error("too few arguments");
         double arg1 = ParseDouble(argv[3]);
         double arg2 = ParseDouble(argv[4]);
