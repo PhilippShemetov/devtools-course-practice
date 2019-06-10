@@ -74,7 +74,7 @@ std::string AreaFiguresApplication::ParseParams(int argc, const char **argv) {
             throw std::runtime_error("too few arguments");
         double arg1 = ParseDouble(argv[3]);
         double arg2 = ParseDouble(argv[4]);
-        return std::to_string(AreaFigures::RectangleArea(arg1,arg2));
+        return std::to_string(AreaFigures::RectangleArea(arg1, arg2));
     } else if (strcmp(argv[2], "square") == 0) {
         if (argc < 4)
             throw std::runtime_error("too few arguments");
@@ -102,7 +102,7 @@ std::string AreaFiguresApplication::ParseParams(int argc, const char **argv) {
             throw std::runtime_error("too few arguments");
         double arg1 = ParseDouble(argv[3]);
         double arg2 = ParseDouble(argv[4]);
-        return std::to_string(AreaFigures::RightTriangleArea(arg1,arg2));
+        return std::to_string(AreaFigures::RightTriangleArea(arg1, arg2));
     } else {
         throw std::runtime_error("wrong param");
     }
