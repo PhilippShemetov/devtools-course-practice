@@ -123,50 +123,50 @@ TEST_F(AreaFiguresApplicationTest, Can_Detect_Wrong_Command) {
     Assert("wrong command.*");
 }
 
-TEST_F(AreaFiguresApplicationTest, Can_Calculate_Cube_Area) {
-    vector<string> args = {"calc", "rectangle", "2"};
+TEST_F(AreaFiguresApplicationTest, Can_Calculate_Rectangle_Area) {
+    vector<string> args = {"calc", "rectangle", "2", "3"};
 
     Act(args);
 
-    Assert("area = 24.*");
+    Assert("area = 6.*");
 }
 
-TEST_F(AreaFiguresApplicationTest, Can_Calculate_Cone_Area) {
-    vector<string> args = {"calc", "cone", "2", "2"};
+TEST_F(AreaFiguresApplicationTest, Can_Calculate_Circle_Area) {
+    vector<string> args = {"calc", "circle", "3"};
 
     Act(args);
 
-    Assert("area = 25.*");
+    Assert("area = 28.*");
 }
 
-TEST_F(AreaFiguresApplicationTest, Can_Calculate_Sphere_Area) {
-    vector<string> args = {"calc", "sphere", "4"};
+TEST_F(AreaFiguresApplicationTest, Can_Calculate_Square_Area) {
+    vector<string> args = {"calc", "square", "4"};
 
     Act(args);
 
-    Assert("area = 201.*");
+    Assert("area = 16.*");
 }
 
-TEST_F(AreaFiguresApplicationTest, Can_Calculate_Cylinder_Area) {
-    vector<string> args = {"calc", "cylinder", "2", "2"};
+TEST_F(AreaFiguresApplicationTest, Can_Calculate_Rhombus_Area) {
+    vector<string> args = {"calc", "rhombus", "10", "2"};
 
     Act(args);
 
-    Assert("area = 50.*");
+    Assert("area = 20.*");
 }
 
-TEST_F(AreaFiguresApplicationTest, Can_Calculate_Parallelipiped_Area) {
-    vector<string> args = {"calc", "paral", "5", "2" , "2"};
+TEST_F(AreaFiguresApplicationTest, Can_Calculate_Equil_Triangle_Area) {
+    vector<string> args = {"calc", "equil triangle", "5", "2"};
 
     Act(args);
 
-    Assert("area = 48.*");
+    Assert("area = 5.*");
 }
 
-TEST_F(AreaFiguresApplicationTest, Can_Calculate_Tetrahedron_Area) {
-    vector<string> args = {"calc", "tetr", "5"};
+TEST_F(AreaFiguresApplicationTest, Can_Calculate_Right_Triangle_Area) {
+    vector<string> args = {"calc", "right triangle", "5", "6"};
 
     Act(args);
 
-    Assert("area = 43.*");
+    Assert("area = 15.*");
 }
