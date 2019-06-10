@@ -1,10 +1,12 @@
 // Copyright 2019 Shemetov Philipp
 
-#ifndef MODULES_AREA_FIGURES_INCLUDE_AREA_FIGURES_APPLICATION_H_
-#define MODULES_AREA_FIGURES_INCLUDE_AREA_FIGURES_APPLICATION_H_
+#ifndef MODULES_CALCULATION_OF_VOLUME_
+FIGURES_INCLUDE_AREA_FIGURES_APPLICATION_H_
+#define MODULES_CALCULATION_OF_VOLUME_FIGURES_
+INCLUDE_AREA_FIGURES_APPLICATION_H_
 
 #include <string>
-#include "area_figures.h"
+#include "include/area_figures.h"
 
 class AreaFiguresApplication {
  private:
@@ -17,4 +19,4 @@ class AreaFiguresApplication {
     std::string operator()(int argc, const char **argv);
 };
 
-#endif  // MODULES_AREA_FIGURES_INCLUDE_AREA_FIGURES_APPLICATION_H_
+#endif  // MODULES_CALCULATION_OF_VOLUME_FIGURES_INCLUDE_AREA_FIGURES_APPLICATION_H_
