@@ -1,0 +1,126 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "AreaFigures class application:"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_With_Arguments
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_Print_Help_With_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "AreaFigures class application:"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Rectangle
+    COMMAND ${APPLICATION} calc rectangle
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Rectangle PROPERTIES
+    PASS_REGULAR_EXPRESSION "too few arguments"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Rectangle
+    COMMAND ${APPLICATION} calc rectangle
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Rectangle PROPERTIES
+    PASS_REGULAR_EXPRESSION "too few arguments"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Rectangle
+    COMMAND ${APPLICATION} calc rectangle
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Rectangle PROPERTIES
+    PASS_REGULAR_EXPRESSION "too few arguments"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format
+    COMMAND ${APPLICATION} calc rhombus 2 pu
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong number format!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Param
+    COMMAND ${APPLICATION} calc nst 2 4 5
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Param PROPERTIES
+    PASS_REGULAR_EXPRESSION "wrong param"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Command
+    COMMAND ${APPLICATION} fs rectangle 2 4 5
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Command PROPERTIES
+    PASS_REGULAR_EXPRESSION "wrong command"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Calculate_Rectangle_Area
+    COMMAND ${APPLICATION} calc rectangle 2 3
+)
+set_tests_properties (${prefix}_can_Calculate_Rectangle_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "area = 6"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Calculate_Circle_Area
+    COMMAND ${APPLICATION} calc circle 3
+)
+set_tests_properties (${prefix}_can_Calculate_Circle_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "area = 28"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Calculate_Square_Area
+    COMMAND ${APPLICATION} calc square 4
+)
+set_tests_properties (${prefix}_can_Calculate_Square_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "area = 16"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Calculate_Rhombus_Area
+    COMMAND ${APPLICATION} calc rhombus 10 2
+)
+set_tests_properties (${prefix}_can_Calculate_Rhombus_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "area = 20"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Calculate_Equil_Triangle_Area
+    COMMAND ${APPLICATION} calc equil triangle 5 2 
+)
+set_tests_properties (${prefix}_can_Calculate_Equil_Triangle_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "area = 5"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Calculate_Right_Triangle_Area
+    COMMAND ${APPLICATION} calc right triangle 5 6
+)
+set_tests_properties (${prefix}_can_Calculate_Right_Triangle_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "area = 15"
+    LABELS "${MODULE}")
