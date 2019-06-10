@@ -1,3 +1,5 @@
+// Copyright 2019 Shemetov Philipp
+
 #include <gtest/gtest.h>
 
 #include <string>

@@ -17,7 +17,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "ShapesArea class application:"
+    PASS_REGULAR_EXPRESSION "AreaFigures class application:"
     LABELS "${MODULE}")
 
 add_test(
@@ -26,36 +26,36 @@ add_test(
 )
 
 set_tests_properties (${prefix}_can_Print_Help_With_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "ShapesArea class application:"
+    PASS_REGULAR_EXPRESSION "AreaFigures class application:"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments_Tetrahedron
-    COMMAND ${APPLICATION} calc tetr
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Rectangle
+    COMMAND ${APPLICATION} calc rectangle
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Tetrahedron PROPERTIES
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Rectangle PROPERTIES
     PASS_REGULAR_EXPRESSION "too few arguments"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments_Tetrahedron
-    COMMAND ${APPLICATION} calc tetr
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Rectangle
+    COMMAND ${APPLICATION} calc rectangle
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Tetrahedron PROPERTIES
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Rectangle PROPERTIES
     PASS_REGULAR_EXPRESSION "too few arguments"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments_Tetrahedron
-    COMMAND ${APPLICATION} calc tetr
+    NAME ${prefix}_can_Check_Number_Of_Arguments_Rectangle
+    COMMAND ${APPLICATION} calc rectangle
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Tetrahedron PROPERTIES
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments_Rectangle PROPERTIES
     PASS_REGULAR_EXPRESSION "too few arguments"
     LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Number_Format
-    COMMAND ${APPLICATION} calc paral 2 4 pu
+    COMMAND ${APPLICATION} calc rhombus 2 pu
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong number format!"
@@ -71,56 +71,56 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Param PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Command
-    COMMAND ${APPLICATION} fs paral 2 4 5
+    COMMAND ${APPLICATION} fs rectangle 2 4 5
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Command PROPERTIES
     PASS_REGULAR_EXPRESSION "wrong command"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Calculate_Cube_Area
-    COMMAND ${APPLICATION} calc cube 2
+    NAME ${prefix}_can_Calculate_Rectangle_Area
+    COMMAND ${APPLICATION} calc rectangle 2 3
 )
-set_tests_properties (${prefix}_can_Calculate_Cube_Area PROPERTIES
-    PASS_REGULAR_EXPRESSION "area = 24"
+set_tests_properties (${prefix}_can_Calculate_Rectangle_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "area = 6"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Calculate_Cone_Area
-    COMMAND ${APPLICATION} calc cone 2 2
+    NAME ${prefix}_can_Calculate_Circle_Area
+    COMMAND ${APPLICATION} calc circle 3
 )
-set_tests_properties (${prefix}_can_Calculate_Cone_Area PROPERTIES
-    PASS_REGULAR_EXPRESSION "area = 25"
+set_tests_properties (${prefix}_can_Calculate_Circle_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "area = 28"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Calculate_Sphere_Area
-    COMMAND ${APPLICATION} calc sphere 4
+    NAME ${prefix}_can_Calculate_Square_Area
+    COMMAND ${APPLICATION} calc square 4
 )
-set_tests_properties (${prefix}_can_Calculate_Sphere_Area PROPERTIES
-    PASS_REGULAR_EXPRESSION "area = 201"
+set_tests_properties (${prefix}_can_Calculate_Square_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "area = 16"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Calculate_Cylinder_Area
-    COMMAND ${APPLICATION} calc cylinder 2 2
+    NAME ${prefix}_can_Calculate_Rhombus_Area
+    COMMAND ${APPLICATION} calc rhombus 10 2
 )
-set_tests_properties (${prefix}_can_Calculate_Cylinder_Area PROPERTIES
-    PASS_REGULAR_EXPRESSION "area = 50"
+set_tests_properties (${prefix}_can_Calculate_Rhombus_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "area = 20"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Calculate_Parallelipiped_Area
-    COMMAND ${APPLICATION} calc paral 5 2 2
+    NAME ${prefix}_can_Calculate_Equil_Triangle_Area
+    COMMAND ${APPLICATION} calc equil triangle 5 2 
 )
-set_tests_properties (${prefix}_can_Calculate_Parallelipiped_Area PROPERTIES
-    PASS_REGULAR_EXPRESSION "area = 48"
+set_tests_properties (${prefix}_can_Calculate_Equil_Triangle_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "area = 5"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Calculate_Tetrahedron_Area
-    COMMAND ${APPLICATION} calc tetr 5
+    NAME ${prefix}_can_Calculate_Right_Triangle_Area
+    COMMAND ${APPLICATION} calc right triangle 5 6
 )
-set_tests_properties (${prefix}_can_Calculate_Tetrahedron_Area PROPERTIES
-    PASS_REGULAR_EXPRESSION "area = 43"
+set_tests_properties (${prefix}_can_Calculate_Right_Triangle_Area PROPERTIES
+    PASS_REGULAR_EXPRESSION "area = 15"
     LABELS "${MODULE}")
