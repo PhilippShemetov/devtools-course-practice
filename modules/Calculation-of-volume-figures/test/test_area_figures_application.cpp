@@ -8,7 +8,7 @@
 #include <functional>
 #include <iterator>
 
-#include "../include/area_figures_application.h"
+#include "../include/area_figures_app.h"
 
 using ::testing::internal::RE;
 using std::vector;

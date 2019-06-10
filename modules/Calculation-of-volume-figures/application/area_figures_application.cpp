@@ -1,7 +1,7 @@
 // Copyright 2019 Shemetov Philipp
 
 #include <iostream>
-#include "../include/area_figures_application.h"
+#include "../include/area_figures_app.h"
 
 int main(int argc, char const** argv) {
     AreaFiguresApplication application;

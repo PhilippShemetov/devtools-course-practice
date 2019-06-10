@@ -6,7 +6,7 @@
 #include <iostream>
 #include <cstring>
 #include <string>
-#include "../include/area_figures_application.h"
+#include "../include/area_figures_app.h"
 
 std::string AreaFiguresApplication::operator()(int argc, const char **argv) {
     std::string output = "area = ";
